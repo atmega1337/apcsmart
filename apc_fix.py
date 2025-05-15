@@ -40,6 +40,8 @@ print(f'2: {ups.getReg2()}')
 print(f'4: {ups.getReg4()}')
 print(f'5: {ups.getReg5()}')
 
-# ups.editreg(0, 'A1')
-# print (settoday())
-# ups.terminalmode_off()
+input()
+
+ups.editreg(0, 'A1')
+print (settoday())
+ups.terminalmode_off()
