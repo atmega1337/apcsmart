@@ -42,7 +42,13 @@ def findreg0(reg4, reg5, reg6, fw):
     max_elements = [item for item in upslist if item['testcalc'] == max_value]
 
     for i in range(len(max_elements)):
-        print(f'{i}) Model: {max_elements[i]['model']}\n - Reg 4: {upslist[i]['originfo']['reg4']} ({upslist[i]['test']['reg4']})\n - Reg 5: {upslist[i]['originfo']['reg5']} ({upslist[i]['test']['reg5']})\n - Reg 6: {upslist[i]['originfo']['reg6']} ({upslist[i]['test']['reg6']})\n')
+        print(f'{i}) Model: {max_elements[i]['model']}\n\
+         Orig         UPS          Status\n\
+  Reg 4  {upslist[i]['originfo']['reg4']:12} {reg4:12} {upslist[i]['test']['reg4']}\n\
+  Reg 5  {upslist[i]['originfo']['reg5']:12} {reg5:12} {upslist[i]['test']['reg5']}\n\
+  Reg 6  {upslist[i]['originfo']['reg6']:12} {reg6:12} {upslist[i]['test']['reg6']}\n\
+  FW     {upslist[i]['originfo']['fw']:12} {fw:12}\n')
+        
     
     while 1:
         choice = input("Select UPS [0]: ")
