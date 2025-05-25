@@ -487,9 +487,15 @@ class apc:
     def getReg2(self):
         data=self.cmd(b"\x27", 2)
         return data
+    def getReg3(self):
+        data=self.cmd(b"\x28", 2)
+        return data
     def getReg4(self):
         data=self.cmd(b"4", 2)
         return data
     def getReg5(self):
         data=self.cmd(b"5", 2)
+        return data 
+    def getReg6(self):
+        data=self.cmd(b"6", 2)
         return data 

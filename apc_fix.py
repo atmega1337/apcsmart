@@ -80,7 +80,8 @@ print(f'Date Manufacture: {ups.getDateManufacture()}')
 print(f'Temperature: {ups.getTemperature()}')
 print(f'S/N: {ups.getSN()}')
 print(f'Old Model: {ups.getOldModel()}')
-print(f'SoftVersion: {ups.getSoftVersion()}')
+fw=ups.getSoftVersion()
+print(f'SoftVersion: {fw}')
 
 print('Line info:')
 print(f'Load: {ups.getLoadPower()}')
@@ -98,15 +99,37 @@ print(f'Voltage: {ups.getBatVoltage()}')
 print(f'Charge: {ups.getBatLevel()}')
 print(f'Date replacement: {ups.getDateBatReplacement()}')
 
+regs={
+    'reg0': ups.getReg0(),
+    'reg1': ups.getReg1(),
+    'reg2': ups.getReg2(),
+    'reg3': ups.getReg3(),
+    'reg4': ups.getReg4(),
+    'reg5': ups.getReg5(),
+    'reg6': ups.getReg6()
+}
+
 print('Reg info:')
-print(f'0: {ups.getReg0()}')
-print(f'1: {ups.getReg1()}')
-print(f'2: {ups.getReg2()}')
-print(f'4: {ups.getReg4()}')
-print(f'5: {ups.getReg5()}')
+print(f'0: {regs["reg0"]}')
+print(f'1: {regs["reg1"]}')
+print(f'2: {regs["reg2"]}')
+print(f'3: {regs["reg3"]}')
+print(f'4: {regs["reg4"]}')
+print(f'5: {regs["reg5"]}')
+print(f'6: {regs["reg6"]}')
 
-input()
 
-ups.editreg(0, 'A1')
-print (settoday())
+input('Press enter for fix reg0 and set new date')
+# Set reg0
+newreg0=findreg0(regs['reg4'],regs['reg5'],regs['reg6'], fw)
+ups.editreg(0, newreg0)
+# Set today
+settoday()
+
 ups.terminalmode_off()
+print('Done')
+
+print(f'Battery date replacement: {ups.getDateBatReplacement()}')
+print(f'Reg 0: {ups.getReg0()}')
+
+input('Press enter for exit')

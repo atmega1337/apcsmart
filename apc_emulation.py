@@ -47,8 +47,8 @@ class apcemu:
             self.outcvar={
 
                   'InV': b'230.0',
-                  'maxInV': b'240.0',
-                  'minInV': b'230.0',
+                  'MaxInV': b'240.0',
+                  'MinInV': b'230.0',
                   'OutV': b'230.0',
                   'BatV': b'24.00',
                   'Bat': b'100.0',
