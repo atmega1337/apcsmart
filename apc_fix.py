@@ -125,9 +125,10 @@ newreg0=findreg0(regs['reg4'],regs['reg5'],regs['reg6'], fw)
 ups.editreg(0, newreg0)
 # Set today
 settoday()
+print('Done')
 
 ups.terminalmode_off()
-print('Done')
+ups.terminalmode_sm()
 
 print(f'Battery date replacement: {ups.getDateBatReplacement()}')
 print(f'Reg 0: {ups.getReg0()}')
